@@ -23,7 +23,7 @@ export default function Update({
   };
 
   return (
-    <div onBlur={() => setComponent(false)}>
+    <div style={{display: "inline-block"}} onBlur={() => setComponent(false)}>
       <form onSubmit={updateButtonHandler}>
         <input
           className="update-input"

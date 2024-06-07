@@ -25,22 +25,13 @@ export default function ListCard(): JSX.Element {
         <Radio.Button value={true}>Активные</Radio.Button>
         <Radio.Button value={false}>Завершенные</Radio.Button>
       </Radio.Group>]}
-      className="tasks"
-      // style={{
-      //   minHeight: "600px",
-      //   // display: "flex",
-      //   // flexDirection: "column",
-      //   // justifyContent: "space-between",
-      // }}
+      className="tasks"    
     >
       <Flex vertical justify="space-between" style={{
-        minHeight: "650px",
-        // display: "flex",
-        // flexDirection: "column",
-        // justifyContent: "space-between",
+        minHeight: "650px",        
       }}>
         <List
-          size="large"
+          size="small"
           pagination={{
             align: "center",
             position: "top",
@@ -55,16 +46,7 @@ export default function ListCard(): JSX.Element {
               {<Task key={item.id} task={item} />}
             </List.Item>
           )}
-        />
-        {/* <Radio.Group
-          value={status}
-          onChange={(e) => setStatus(e.target.value)}
-          style={{ marginTop: "16px" }}
-        >
-          <Radio.Button value="all">Все записи</Radio.Button>
-          <Radio.Button value={true}>Активные</Radio.Button>
-          <Radio.Button value={false}>Завершенные</Radio.Button>
-        </Radio.Group> */}
+        />        
       </Flex>
     </Card>
   );

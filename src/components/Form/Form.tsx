@@ -16,7 +16,6 @@ export default function FormTask() {
     useContext(ContextAll);
   return (
     <Form
-      // layout="inline"
       onValuesChange={formHandler}
       form={form}
       onFinish={submitHandler}

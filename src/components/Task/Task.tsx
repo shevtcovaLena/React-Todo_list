@@ -17,16 +17,16 @@ export default function Task({ task }: { task: ITask }): JSX.Element {
           checked={task.status}
         />
         {task.status ? (
-          <p style={{ textDecoration: "line-through", color: "grey" }}>
+          <p className="task-text" style={{ textDecoration: "line-through", color: "grey" }}>
             {task.title}
           </p>
         ) : (
-          <p>{task.title}</p>
+          <p className="task-text">{task.title}</p>
         )}
       </div>
-      {component ? <Update task={task} setComponent={setComponent} /> : <></>}
       <div>
-        <Button type="link" onClick={() => setComponent(true)}>
+      {component ? <Update task={task} setComponent={setComponent} /> : <></>}
+        <Button type="link" onClick={() => setComponent((pre) => (!pre))}>
           <EditOutlined style={{ fontSize: "18px" }} />
         </Button>
         <Button type="link" onClick={() => delHandler(task.id as number)}>

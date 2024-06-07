@@ -92,7 +92,7 @@ export const ToDoContextProvider = ({
   useLayoutEffect((): void => {
     if (sessionStorage.tasks) {
     setTasks((pre) => [...pre, ...JSON.parse(sessionStorage.tasks)]);
-    return
+    return;
     }
     setTasks(initTasks)
   }, []);
