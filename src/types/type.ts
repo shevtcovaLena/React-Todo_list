@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react"
+
 interface ITask {
     id?: number,
     title: string,
@@ -11,15 +13,8 @@ interface ITask {
     updateHandler: (id: number, str:string) => void,
   }
 
-  interface IPropsForm {
-    inputs: ITask,
-    formHandler: React.ChangeEventHandler,
-    submitHandler: React.FormEventHandler
-  }
-  
-  
+      
   interface ITaskProps {
-    // task: ITask,
     delHandler: (id: number) => void,
     checkHandler: (id: number) => void,
     updateHandler: (id: number, str:string) => void,
@@ -27,7 +22,7 @@ interface ITask {
 
   interface IUpdateTitle {
     task: ITask,
-    updateHandler: (id: number, str:string) => void,
+    setComponent:Dispatch<SetStateAction<boolean>>
   }
   
-  export type { ITask, IPropsForm, IList, ITaskProps, IUpdateTitle }
+  export type { ITask, IList, ITaskProps, IUpdateTitle }

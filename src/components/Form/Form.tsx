@@ -1,13 +1,40 @@
-import React, {useContext} from 'react'
-import { IPropsForm } from '../../types/type'
-import { ContextAll } from '../../context/context'
+import { useContext } from "react";
+import { ContextAll } from "../../context/context";
+import { ITask } from "../../types/type";
+import { Button, Input, Form, FormInstance } from "antd";
+import { SnippetsOutlined } from "@ant-design/icons";
 
-export default function Form( ) {
-    const { inputs, formHandler, submitHandler } : IPropsForm = useContext(ContextAll)
+interface IPropsForm {
+  // inputs: Omit<ITask, "id" | "status">;
+  formHandler: (input: Pick<ITask, "title">) => void;
+  submitHandler: React.FormEventHandler;
+  form: FormInstance<Pick<ITask, "title">>;
+}
+
+export default function FormTask() {
+  const { formHandler, submitHandler, form }: IPropsForm =
+    useContext(ContextAll);
   return (
-   <form onSubmit={submitHandler}>
-    <input onChange={formHandler} type="text" name="title" placeholder="title" value={inputs.title} />
-    <button type="submit">Add</button>
-   </form>
-  )
+    <Form
+      // layout="inline"
+      onValuesChange={formHandler}
+      form={form}
+      onFinish={submitHandler}
+      style={{margin: "20px auto"}}
+    >
+      <Form.Item name="title">
+        <Input
+          // onChange={formHandler}
+          // value={inputs.title}
+          size="large"
+          placeholder="Добавьте заметку"
+          prefix={<SnippetsOutlined />}
+          style={{backgroundColor: "white", height: "3rem"}}
+        />
+      </Form.Item>      
+      <Button type="primary" onClick={submitHandler} htmlType="submit">
+        Добавить
+      </Button>
+    </Form>
+  );
 }
