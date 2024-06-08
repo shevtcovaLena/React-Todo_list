@@ -1,3 +1,8 @@
+// Для хранения состояний одностроничного приложения, на мой взгляд,
+// идеально подходит Context, хотя монжо было бы и вовсе сделать все
+// локально в компоненте со списком. В более сложных проектах использовала
+// бы менеджеры состояния. Напримем Redux ToolKit
+
 import React, { ChangeEventHandler, useLayoutEffect } from "react";
 import { useEffect, useState, createContext } from "react";
 import { ITask, ITaskInput } from "../types/type";
@@ -12,7 +17,7 @@ export const initTasks: ITask[] = [
   { title: "Знать React", status: true, id: 3 },
   { title: "Стать программистом", status: true, id: 4 },
   { title: "Выполнить тестовое", status: true, id: 5 },
-  { title: "Найти команду мечты", status: false, id: 6 },  
+  { title: "Найти команду мечты", status: false, id: 6 },
 ];
 
 export interface IContext {
@@ -37,12 +42,10 @@ export const ToDoContextProvider = ({
   const [inputs, setInputs] = useState<ITaskInput>(todoInputs);
   const [tasks, setTasks] = useState<ITask[]>([]);
 
-  
   const formHandler = (e: React.FormEvent<HTMLInputElement>) => {
     const { value } = e.target as HTMLInputElement;
-    setInputs({title: value});
+    setInputs({ title: value });
   };
-  
 
   const submitHandler = (e: React.FormEvent): void => {
     e.preventDefault();
@@ -84,16 +87,20 @@ export const ToDoContextProvider = ({
     );
   };
 
+  //Приняла решение в тестовом формате сохранять таски в sessionStorage,
+  //чтобы при перезагрузки страницы они не слетали.
+  //В реальных же условиях данные бы отправлялись на бэк и/или в БД
+
   useEffect((): void => {
     sessionStorage.tasks = JSON.stringify(tasks);
   }, [tasks]);
 
   useLayoutEffect((): void => {
     if (sessionStorage.tasks) {
-    setTasks((pre) => [...pre, ...JSON.parse(sessionStorage.tasks)]);
-    return;
+      setTasks((pre) => [...pre, ...JSON.parse(sessionStorage.tasks)]);
+      return;
     }
-    setTasks(initTasks)
+    setTasks(initTasks);
   }, []);
 
   const contextValue: IContext = {
@@ -109,6 +116,9 @@ export const ToDoContextProvider = ({
     <ContextAll.Provider value={contextValue}>{children}</ContextAll.Provider>
   );
 };
+
+//=====================================================================================
+//Здесь я оставила закоментированные обработчики и useEffect на fetch запросах
 
 // const submitHandler = async (e: React.FormEvent): Promise<void> => {
 //   e.preventDefault();
