@@ -11,7 +11,7 @@ export default function ListCard(): JSX.Element {
   const { tasks }: IList = useContext(ContextAll);
   const [status, setStatus] = useState<StatusType>("all");
 
-  const data = tasks.filter((task) => task.status != status).reverse();
+  const data = (tasks ? tasks : []).filter((task) => task.status != status).reverse();
 
   return (
     <Card

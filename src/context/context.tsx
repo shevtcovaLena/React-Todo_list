@@ -1,13 +1,12 @@
-import React, { useLayoutEffect } from "react";
+import React, { ChangeEventHandler, useLayoutEffect } from "react";
 import { useEffect, useState, createContext } from "react";
-import { ITask } from "../types/type";
-import { Form, FormInstance } from "antd";
+import { ITask, ITaskInput } from "../types/type";
 
-const todoInputs: Pick<ITask, "title"> = {
+const todoInputs: ITaskInput = {
   title: "",
 };
 
-const initTasks: ITask[] = [
+export const initTasks: ITask[] = [
   { title: "Знать JS", status: true, id: 1 },
   { title: "Знать HTML, CSS", status: true, id: 2 },
   { title: "Знать React", status: true, id: 3 },
@@ -17,14 +16,13 @@ const initTasks: ITask[] = [
 ];
 
 export interface IContext {
-  inputs: Pick<ITask, "title">;
+  inputs: ITaskInput;
   tasks: ITask[];
-  formHandler: (input: Pick<ITask, "title">) => void;
+  formHandler: ChangeEventHandler<HTMLInputElement>;
   submitHandler: React.FormEventHandler;
   delHandler: (id: number) => void;
   checkHandler: (id: number) => void;
   updateHandler: (id: number, str: string) => void;
-  form: FormInstance<Pick<ITask, "title">>;
 }
 
 export const ContextAll: React.Context<IContext> = createContext(
@@ -36,20 +34,21 @@ export const ToDoContextProvider = ({
 }: {
   children: React.ReactNode;
 }): JSX.Element => {
-  const [inputs, setInputs] = useState<Pick<ITask, "title">>(todoInputs);
+  const [inputs, setInputs] = useState<ITaskInput>(todoInputs);
   const [tasks, setTasks] = useState<ITask[]>([]);
 
-  const [form] = Form.useForm<Pick<ITask, "title">>();
-
-  const formHandler = (input: Pick<ITask, "title">) => {
-    setInputs(input);
+  
+  const formHandler = (e: React.FormEvent<HTMLInputElement>) => {
+    const { value } = e.target as HTMLInputElement;
+    setInputs({title: value});
   };
+  
 
   const submitHandler = (e: React.FormEvent): void => {
     e.preventDefault();
     const newTask: ITask = { ...inputs, id: Number(new Date()), status: false };
     setTasks((pre) => [...pre, newTask]);
-    form.resetFields();
+    setInputs(todoInputs);
   };
 
   const delHandler = async (id: number) => {
@@ -105,7 +104,6 @@ export const ToDoContextProvider = ({
     delHandler,
     checkHandler,
     updateHandler,
-    form,
   };
   return (
     <ContextAll.Provider value={contextValue}>{children}</ContextAll.Provider>

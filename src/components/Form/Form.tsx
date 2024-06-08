@@ -1,30 +1,27 @@
-import { useContext } from "react";
+import { ChangeEventHandler, useContext } from "react";
 import { ContextAll } from "../../context/context";
-import { ITask } from "../../types/type";
-import { Button, Input, Form, FormInstance } from "antd";
+import { ITaskInput } from "../../types/type";
+import { Button, Input, Form } from "antd";
 import { SnippetsOutlined } from "@ant-design/icons";
 
 interface IPropsForm {
-  // inputs: Omit<ITask, "id" | "status">;
-  formHandler: (input: Pick<ITask, "title">) => void;
+  inputs: ITaskInput;
+  formHandler: ChangeEventHandler<HTMLInputElement>;
   submitHandler: React.FormEventHandler;
-  form: FormInstance<Pick<ITask, "title">>;
 }
 
 export default function FormTask() {
-  const { formHandler, submitHandler, form }: IPropsForm =
+  const { inputs, formHandler, submitHandler }: IPropsForm =
     useContext(ContextAll);
   return (
     <Form
-      onValuesChange={formHandler}
-      form={form}
       onFinish={submitHandler}
       style={{margin: "20px auto"}}
     >
-      <Form.Item name="title">
+      <Form.Item name="title" >
         <Input
-          // onChange={formHandler}
-          // value={inputs.title}
+          onChange={formHandler}
+          value={inputs?.title || ""}
           size="large"
           placeholder="Добавьте заметку"
           prefix={<SnippetsOutlined />}
