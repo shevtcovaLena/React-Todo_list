@@ -6,6 +6,7 @@
 import React, { ChangeEventHandler, useLayoutEffect } from "react";
 import { useEffect, useState, createContext } from "react";
 import { ITask, ITaskInput } from "../types/type";
+import { Form, FormInstance } from "antd";
 
 const todoInputs: ITaskInput = {
   title: "",
@@ -28,6 +29,7 @@ export interface IContext {
   delHandler: (id: number) => void;
   checkHandler: (id: number) => void;
   updateHandler: (id: number, str: string) => void;
+  form: FormInstance<any>;
 }
 
 export const ContextAll: React.Context<IContext> = createContext(
@@ -42,16 +44,17 @@ export const ToDoContextProvider = ({
   const [inputs, setInputs] = useState<ITaskInput>(todoInputs);
   const [tasks, setTasks] = useState<ITask[]>([]);
 
+  const [form] = Form.useForm(); 
+
   const formHandler = (e: React.FormEvent<HTMLInputElement>) => {
     const { value } = e.target as HTMLInputElement;
     setInputs({ title: value });
   };
 
-  const submitHandler = (e: React.FormEvent): void => {
-    e.preventDefault();
+  const submitHandler = (): void => {
     const newTask: ITask = { ...inputs, id: Number(new Date()), status: false };
     setTasks((pre) => [...pre, newTask]);
-    setInputs(todoInputs);
+    form.resetFields();
   };
 
   const delHandler = async (id: number) => {
@@ -91,8 +94,8 @@ export const ToDoContextProvider = ({
   //чтобы при перезагрузки страницы они не слетали.
   //В реальных же условиях данные бы отправлялись на бэк и/или в БД
 
-  useEffect((): void => {
-    sessionStorage.tasks = JSON.stringify(tasks);
+  useEffect(() => {
+    sessionStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
   useLayoutEffect((): void => {
@@ -111,6 +114,7 @@ export const ToDoContextProvider = ({
     delHandler,
     checkHandler,
     updateHandler,
+    form,
   };
   return (
     <ContextAll.Provider value={contextValue}>{children}</ContextAll.Provider>

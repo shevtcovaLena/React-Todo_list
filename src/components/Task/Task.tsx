@@ -9,7 +9,7 @@ export default function Task({ task }: { task: ITask }): JSX.Element {
   const { delHandler, checkHandler }: ITaskProps = useContext(ContextAll);
   const [component, setComponent] = useState<boolean>(false);
   return (
-    <div className="myTask">
+    <div className="myTask" data-testid='test-task'>
       <div className="inline">
         <input
           type="checkbox"

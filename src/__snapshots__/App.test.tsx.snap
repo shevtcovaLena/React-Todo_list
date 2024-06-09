@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`correct ListCard render > button 1`] = `
+<form
+  class="ant-form ant-form-horizontal css-dev-only-do-not-override-1m81x91"
+  data-testid="task-form"
+  style="margin: 20px auto;"
+>
+  <div
+    class="ant-form-item css-dev-only-do-not-override-1m81x91"
+  >
+    <div
+      class="ant-row ant-form-item-row css-dev-only-do-not-override-1m81x91"
+    >
+      <div
+        class="ant-col ant-form-item-control css-dev-only-do-not-override-1m81x91"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-lg css-dev-only-do-not-override-1m81x91 ant-input-outlined"
+              style="background-color: white; height: 3rem;"
+            >
+              <span
+                class="ant-input-prefix"
+              >
+                <span
+                  aria-label="snippets"
+                  class="anticon anticon-snippets"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="snippets"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M832 112H724V72c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v40H500V72c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v40H320c-17.7 0-32 14.3-32 32v120h-96c-17.7 0-32 14.3-32 32v632c0 17.7 14.3 32 32 32h512c17.7 0 32-14.3 32-32v-96h96c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM664 888H232V336h218v174c0 22.1 17.9 40 40 40h174v338zm0-402H514V336h.2L664 485.8v.2zm128 274h-56V456L544 264H360v-80h68v32c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-32h152v32c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-32h68v576z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <input
+                class="ant-input ant-input-lg css-dev-only-do-not-override-1m81x91"
+                id="title"
+                placeholder="Добавьте заметку"
+                type="text"
+                value=""
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    class="ant-btn css-dev-only-do-not-override-1m81x91 ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Добавить
+    </span>
+  </button>
+</form>
+`;
+
+exports[`correct ListCard render button 1`] = `
+<form
+  class="ant-form ant-form-horizontal css-dev-only-do-not-override-1m81x91"
+  data-testid="task-form"
+  style="margin: 20px auto;"
+>
+  <div
+    class="ant-form-item css-dev-only-do-not-override-1m81x91"
+  >
+    <div
+      class="ant-row ant-form-item-row css-dev-only-do-not-override-1m81x91"
+    >
+      <div
+        class="ant-col ant-form-item-control css-dev-only-do-not-override-1m81x91"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-lg css-dev-only-do-not-override-1m81x91 ant-input-outlined"
+              style="background-color: white; height: 3rem;"
+            >
+              <span
+                class="ant-input-prefix"
+              >
+                <span
+                  aria-label="snippets"
+                  class="anticon anticon-snippets"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="snippets"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M832 112H724V72c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v40H500V72c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v40H320c-17.7 0-32 14.3-32 32v120h-96c-17.7 0-32 14.3-32 32v632c0 17.7 14.3 32 32 32h512c17.7 0 32-14.3 32-32v-96h96c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM664 888H232V336h218v174c0 22.1 17.9 40 40 40h174v338zm0-402H514V336h.2L664 485.8v.2zm128 274h-56V456L544 264H360v-80h68v32c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-32h152v32c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-32h68v576z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <input
+                class="ant-input ant-input-lg css-dev-only-do-not-override-1m81x91"
+                id="title"
+                placeholder="Добавьте заметку"
+                type="text"
+                value=""
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    class="ant-btn css-dev-only-do-not-override-1m81x91 ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Добавить
+    </span>
+  </button>
+</form>
+`;
