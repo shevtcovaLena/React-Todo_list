@@ -29,7 +29,7 @@ export default function FormTask() {
           style={{ backgroundColor: "white", height: "3rem" }}
         />
       </Form.Item>
-      <Button type="primary">Добавить</Button>
+      <Button type="primary" htmlType="submit">Добавить</Button>
     </Form>
   );
 }
