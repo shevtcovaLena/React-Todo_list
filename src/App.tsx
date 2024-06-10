@@ -10,7 +10,7 @@ function App() {
           token: {
             colorBgBase: "#b5b7c7",
             colorBgContainer: "#e4e6f7",
-            // borderRadius: 0,
+            borderRadius: 0,
             fontSize: 18,
           },
           components: {

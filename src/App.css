@@ -24,7 +24,10 @@
 
 .update-input {
   padding: 0.4rem;
-  border-radius: 8px;
+}
+
+.update-input:focus {
+  outline: none;
 }
 
 .task-text {

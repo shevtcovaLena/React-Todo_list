@@ -13,9 +13,9 @@ const todoInputs: ITaskInput = {
 };
 
 export const initTasks: ITask[] = [
-  { title: "Знать JS", status: true, id: 1 },
-  { title: "Знать HTML, CSS", status: true, id: 2 },
-  { title: "Знать React", status: true, id: 3 },
+  { title: "Освоить HTML, CSS", status: true, id: 1 },
+  { title: "Освоить JS", status: true, id: 2 },
+  { title: "Освоить React", status: true, id: 3 },
   { title: "Стать программистом", status: true, id: 4 },
   { title: "Выполнить тестовое", status: true, id: 5 },
   { title: "Найти команду мечты", status: false, id: 6 },
