@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`correct ListCard render > button 1`] = `
+exports[`button 1`] = `
 <form
   class="ant-form ant-form-horizontal css-dev-only-do-not-override-1m81x91"
   data-testid="task-form"
@@ -63,7 +63,7 @@ exports[`correct ListCard render > button 1`] = `
   </div>
   <button
     class="ant-btn css-dev-only-do-not-override-1m81x91 ant-btn-primary"
-    type="button"
+    type="submit"
   >
     <span>
       Добавить
@@ -135,7 +135,7 @@ exports[`correct ListCard render button 1`] = `
   </div>
   <button
     class="ant-btn css-dev-only-do-not-override-1m81x91 ant-btn-primary"
-    type="button"
+    type="submit"
   >
     <span>
       Добавить

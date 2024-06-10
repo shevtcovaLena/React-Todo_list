@@ -14,18 +14,17 @@ beforeAll(() => {
     };
 });
 
+test("button", () => {
+  render(<App />);
+  const button = screen.getByRole("button", { name: /добавить/i });
+  const input = screen.getByPlaceholderText(/добавьте заметку/i);
+  const form = screen.getByTestId("task-form");
+  expect(button).toBeInTheDocument();
+  expect(input).toBeInTheDocument();
+  expect(form).toMatchSnapshot();
+});
+
 describe("correct ListCard render", () => {
-  
-  test("button", () => {
-    render(<App />);
-    const button = screen.getByRole("button", { name: /добавить/i });
-    const input = screen.getByPlaceholderText(/добавьте заметку/i);
-    const form = screen.getByTestId("task-form");
-    expect(button).toBeInTheDocument();
-    expect(input).toBeInTheDocument();
-    expect(form).toMatchSnapshot();
-  });
-  
   test("input test", async () => {
     render(<App />);
     const input = screen.getByPlaceholderText(/добавьте заметку/i);
